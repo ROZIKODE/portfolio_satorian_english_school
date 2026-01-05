@@ -1,0 +1,1706 @@
+/* ===== Reset（最低限） ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color: #111827;
+}
+
+
+
+/* ===== 共通 ===== */
+.site-header {
+  width: 100%;
+}
+
+.header-top,
+.header-bottom {
+  width: 100%;
+}
+
+.header-inner {
+  max-width: 1200px;  /* ★ 余白をしっかり作る（おすすめ） */
+  margin: 0 auto;
+  padding: 0 36px;   /* ★ 内側余白もほどよく（値が大きいほど内側に寄る） */ 
+}
+
+/* ===== 上段ヘッダー ===== */
+.header-top {
+  background-color: #ffffff ;
+  border-bottom: 1px solid #f7fbfc;
+}
+
+.header-top .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 110px; /* 上段ヘッダー高さ */
+}
+
+
+
+/* ロゴ */
+.logo {
+
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-main {
+  font-size: 32px;
+  font-weight: 850;
+  color:#2563eb;
+}
+
+.logo-sub {
+  font-size: 22px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* 右側エリア */
+.top-actions {
+  display: flex;
+  align-items: center; /* 無料体験ボタンを縦中央に */
+  gap: 36px; /* 無料体験ボタンとの距離（値が高ければボタンと離れる距離が増える） */
+}
+
+/* 縦2段リンク */
+.top-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* 上段ヘッダー右側の２段リンクの上下幅 */
+  text-align: right;
+}
+
+.top-links a {
+   display: inline-block; /* ← これが重要 */
+  font-size: 20px;
+  width: 150px;          /* ← 横幅をそろえる */
+  text-decoration: none;
+  color: #111827;
+  text-align: right;     /* 右寄せ（今のデザインに合う） */
+}
+
+/* お問い合わせ　固有の文字間　調整 */
+.top-links a.top-link--contact{
+  letter-spacing: 0.15em; 
+}
+
+.top-links a:hover {
+  text-decoration: underline;
+}
+
+/* 無料体験ボタン */
+.cta-trial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 22px;
+  background-color: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cta-trial:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ===== 下段ヘッダー（グローバルナビ） ===== */
+.header-bottom {
+  background-color: #f0eee4
+}
+
+.header-bottom .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ★ 2段目は中央に寄せる */
+  min-height: 64px; /* 下段ヘッダー　高さ */
+}
+
+/* ★ 均等・中央揃え */
+.global-nav {
+  display: flex;
+  justify-content: center; /* ★ 中央揃え */
+  gap: 10px;               /* ★ 等間隔（均等） */
+  flex-wrap: wrap;
+  font-weight: bold;
+}
+
+.global-nav a {
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  
+  color: #111827;
+  padding: 0px 20px;
+}
+
+/* 下線ホバーアニメーション */
+.global-nav a::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: 0px;
+  width: 0px;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+  color:#2343e3;
+}
+
+.global-nav a:hover::after {
+  width: calc(100% - 40px);
+}
+
+/* ===== レスポンシブ（最低限） ===== */
+@media (max-width: 640px) {
+  .header-top .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .top-actions {
+    justify-content: space-between;
+  }
+
+  .top-links {
+    text-align: left;
+  }
+
+  .global-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .global-nav {
+    gap: 86px;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  width: 100%;
+  background-color: #f7f7f2;
+}
+
+.hero-inner {
+  max-width: 1400px;   /* ヘッダーより少し広く */
+  margin: 0 auto;
+  padding: 0 24px 0px; /* ヘッダーにくっつける */
+}
+
+/* 画像コンテナ（重ねの土台） */
+.hero-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* hero画像サイズ */
+.hero-media img {
+  width: 100%;
+  height: 720px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 文字の読みやすさ用（左側を濃いめ） */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.52) 0%,
+    rgba(0,0,0,0.18) 55%,
+    rgba(0,0,0,0.00) 100%
+  );
+  pointer-events: none;
+}
+
+/* 画像の上の文字エリア：left指定でなく padding で揃える */
+.hero-onimage {
+  position: absolute;
+  inset: 0;                 /* 画像の上全体を確保 */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* 縦中央 */
+  padding: 0 56px;          /* ← ここで左右の位置を安全に調整 */
+  max-width: 1000px;         /* 文章が長くなりすぎない */
+  color: #ffffff;
+  transform: translateY(-120px); /* ← 値が低ければ上に移動 */
+}
+
+/* テキスト */
+.hero-kicker {
+  margin: 0 0 6px;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  opacity: 0.95;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0 0 12px;
+  font-size: 72px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.hero-text {
+  margin: 0 0 50px;
+  font-size: 24px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .hero-inner {
+    padding: 0 16px 44px;
+  }
+
+  .hero-media img {
+    height: 380px;
+  }
+
+  .hero-onimage {
+    padding: 0 16px;      /* スマホは余白を小さく */
+    max-width: none;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+}
+
+/* ===== News ===== */
+.news{
+  width: 100%;
+  background: #ffffff;
+}
+
+.news-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px 56px;  /* ← ヒーロー直下を詰めたいなら上0 */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+/* 左上に見出し */
+.news-head{
+  justify-self: start;
+  text-align: left;
+}
+
+.news-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.news-title{
+  margin: 4px 0 4px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* 中身（2件 + ボタン） */
+.news-body{
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0px;
+
+}
+
+.news-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+/* liは枠だけ（ここでgridにしない） */
+.news-item{
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* 行全体をクリック可能に：ここだけが2カラム */
+.news-link{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 14px;
+  align-items: start;
+
+  width: 100%;
+  padding: 0px 8px;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.news-link:hover{
+  background-color: #f9fafb;
+}
+
+.news-link:focus-visible{
+  outline: 2px solid #e5e7eb;
+  outline-offset: 2px;
+}
+
+/* 左側（タグ＋日付） */
+.news-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* カテゴリタグ（塗りつぶし） */
+.news-tag{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  margin-top: 16px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.news-tag.is-news{
+  background: #111827;
+}
+
+.news-tag.is-campaign{
+  background: #2563eb;
+}
+
+/* 日付 */
+.news-date{
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+  padding-left: 18px;
+}
+
+/* 右側トピック（pのデフォルト余白を殺すのが重要） */
+.news-text{
+  margin: 0;               /* ← これがないとズレの元になる */
+  font-size: 20px;
+  line-height: 4;
+  color: #111827;
+}
+
+/* 一覧を見るボタン */
+.news-actions{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+ 
+}
+
+.news-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.news-button:hover{
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+  .news-inner{
+    padding: 0 16px 44px;
+  }
+
+  .news-link{
+    grid-template-columns: 1fr;
+    padding: 12px 0;
+  }
+
+  .news-actions{
+    justify-content: flex-start;
+  }
+}
+
+/* ===== Reasons ===== */
+.reasons{
+  width: 100%;
+  background: #f7f7f2;
+}
+
+.reasons-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px 64px;
+}
+
+.reasons-head{
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.reasons-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.reasons-title{
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.reasons-lead{
+  margin: 10px 0 0;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+/* 横並び3つ */
+.reasons-grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px; /* カード間の間隔 */
+}
+
+.reason-card{
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 0;              /* 画像を端まで出す */
+  overflow: hidden;        /* 角丸にするなら必要 */
+}
+
+/* 画像エリア（番号を重ねる土台） */
+.reason-media{
+  position: relative;
+}
+
+.reason-media img{
+  width: 100%;
+  height: 270px;          
+  object-fit: cover;
+  display: block;
+}
+
+.reason-no{
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  margin: 0;
+
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  background: rgba(17,24,39,0.85);
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* 画像の下のテキスト部分 */
+.reason-title,
+.reason-text{
+  padding: 0 18px;
+}
+
+
+.reason-title{
+  margin: 14px 0 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.reason-text{
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #111827;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+  .reasons-inner{
+    padding: 44px 16px 52px;
+  }
+
+  .reasons-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Courses & Fees ===== */
+.courses{
+  width: 100%;
+  background: #ffffff;
+}
+
+.courses-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 102px 24px 102px;
+}
+
+.courses-head{
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.courses-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.courses-title{
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.courses-lead{
+  margin: 10px 0 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+/* 横スクロール可（スマホで崩れない） */
+.fee-table-wrap{
+  margin-top: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e7eb;
+}
+
+.fee-table{
+  width: 100%;
+  min-width: 760px; /* スマホは横スクロール */
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.fee-table thead th{
+  text-align: left;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  padding: 12px 12px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+/* テーブル内のフォント */
+.fee-table tbody th,
+.fee-table tbody td{
+  padding: 18px 18px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 1.25rem;
+  vertical-align: top;
+}
+
+.fee-table tbody th{
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.fee-table tbody td strong{
+  font-weight: 900;
+}
+
+.fee-table tbody tr:hover{
+  background: #f9fafb;
+}
+
+.courses-note{
+  margin: 12px 0 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #6b7280;
+}
+
+/* コース：無料体験CTA（表の下） */
+.courses-cta{
+  margin-top: 72px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.courses-cta-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 800;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.courses-cta-button:hover{
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.courses-cta-note{
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6b7280;
+  text-align: center;
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+  .courses-inner{
+    padding: 44px 16px 52px;
+  }
+}
+
+/* ===== Voices ===== */
+.voices{
+  width: 100%;
+  background: #f7f7f2;
+}
+
+.voices-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 24px 96px;
+}
+
+.voices-head{
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.voices-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.voices-title{
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* リスト */
+.voices-list{
+  display: grid;
+  gap: 64px;
+}
+
+/* 1行 */
+.voice-item{
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+
+
+/* 丸画像 */
+.voice-image img{
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}
+
+/* テキスト */
+.voice-text p{
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #111827;
+}
+
+.voice-name{
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* ボタン */
+.voices-actions{
+  margin-top: 36px;
+  display: flex;
+  justify-content: right;
+}
+
+.voices-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 0 36px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: #111827;
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  background-color: #ffffff;
+}
+
+.voices-button:hover{
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+  .voices-inner{
+    padding: 44px 16px 52px;
+  }
+
+  .voice-item{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .voice-image{
+    margin-bottom: 8px;
+  }
+
+}
+
+/* ===== Schools ===== */
+.schools{
+  width: 100%;
+  background: #ffffff;
+}
+
+.schools-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 24px 180px;
+}
+
+.schools-head{
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.schools-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.schools-title{
+  margin: 4px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.schools-lead{
+  margin: 10px 0 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+/* エリア全体 */
+.schools-area{
+  display: flex;
+  flex-wrap:wrap;
+  gap: 24px;
+  align-items: stretch; /* ← これを追加 */
+}
+
+/* エリアブロック */
+.area-block{
+  border: 1px solid #e5e7eb;
+  padding: 24px 24px;
+  flex: 1 1 calc(33.333% - 16px); /* 3列 */
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+   min-height: 280px; /* ← 目安。160〜220で調整 */
+}
+
+.area-title{
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* 県リスト */
+.area-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.area-list a{
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #111827;
+  padding: 4px 0;
+  display: inline-block;
+}
+
+.area-list a:hover{
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px){
+  .area-block{
+    flex: 1 1 calc(50% - 12px); /* 2列 */
+  }
+}
+
+@media (max-width: 640px){
+  .area-block{
+    flex: 1 1 100%; /* 1列 */
+  }
+}
+
+
+/* ===== Footer ===== */
+.site-footer{
+  width: 100%;
+  background: #111827;
+  color: #ffffff;
+}
+
+.footer-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 32px 16px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 72px;
+}
+
+/* ロゴ */
+.footer-logo{
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.footer-logo-main{
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo-sub{
+  font-size: 1.4rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.footer-desc{
+  margin: 14px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.78);
+  max-width: 360px;
+}
+
+/* 見出し */
+.footer-title{
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  letter-spacing: 0.10em;
+  opacity: 0.75;
+}
+
+/* リスト */
+.footer-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.footer-list a{
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-list a:hover{
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.footer-list li{
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.78);
+}
+
+/* 下段 */
+.footer-bottom{
+  border-top: 1px solid rgba(17,24,39,1);
+}
+
+.footer-bottom-inner{
+  padding: 56px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.copyright{
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px){
+  .footer-inner{
+    grid-template-columns: 1fr;
+    padding: 40px 16px;
+  }
+
+  .footer-bottom-inner{
+    padding: 16px;
+  }
+}
+
+/* ===== Contact ===== */
+/*【contact.html】*/
+.contact{
+  width: 100%;
+  background: #ffffff;
+}
+
+.contact-inner{
+  max-width: 900px; /* ヘッダーと同じ幅 */
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.contact-head{
+  margin:0 auto;
+  background-color: #111827;
+  max-width:1200px;
+}
+
+.contact-head-text{
+  margin: 0 auto;
+  color:#ffffff;
+  padding: 24px 0px 24px;
+  text-align: center;
+}
+
+.contact-sub{
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.contact-title{
+  margin: 6px 0 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.contact-lead{
+  margin: 8px 0 8px;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+  text-align: center;
+}
+
+/* フォーム全体 */
+.contact-form{
+  display: grid;
+  gap: 18px;
+}
+
+/* 1項目（左：ラベル / 右：入力） */
+.form-row{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.form-label{
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+/* 入力エリア */
+.form-field{
+  display: grid;
+  gap: 24px;
+}
+
+.form-field.two-cols{
+  grid-template-columns: 1fr 1fr;
+}
+
+/* input / select / textarea を統一 */
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width: 100%;
+  font-size: 1.125rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.form-field input,
+.form-field select{
+  height: 40px;
+}
+
+.form-field textarea{
+  padding: 10px 12px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+/* 補足文（pのデフォmarginを消すのが重要） */
+.form-note{
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ちょい詰め（確認用の下に補足を寄せたい場合） */
+.form-field input + input + .form-note{
+  margin-top: -6px;
+}
+
+/* 送信ボタン */
+.form-actions{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-submit{
+  height: 60px;
+  padding: 0 32px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #111827;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-submit:hover{
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+  .contact-inner{
+    padding: 44px 16px 52px;
+  }
+
+  .form-row{
+    grid-template-columns: 1fr;
+  }
+
+  .form-label{
+    padding-top: 0;
+  }
+
+  .form-field.two-cols{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* チェックボックス */
+.check-label{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.125rem;
+  color: #111827;
+}
+
+.check-label input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+/* プライバシーポリシーリンク */
+.check-label a{
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.check-label a:hover{
+  text-decoration: none;
+}
+
+/* ===== Trial Page ===== */
+/* 【trial.html】 */
+.trial{
+  width: 100%;
+  background: #ffffff;
+}
+
+.trial-inner{
+  max-width: 1200px;           /* ヘッダーと同じ幅 */
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+/* ===== Trial Head ===== */
+
+/* 無料体験レッスン 背景 */
+.trial-head {
+  width:100%;
+  margin:0 auto;
+  background-image: url("images/trial.png");
+  background-size: cover;        /* 横幅いっぱい */
+  background-position: top;      /* 上基準 */
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.trial-head-img{
+  max-width: 1200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.trial-head::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 91, 238, 0.45); /* 文字を読ませるため */
+}
+
+/* 無料体験レッスン　背景サイズ */
+.trial-head-inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px 32px;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  text-align: center;
+}
+
+.trial-sub{
+  font-size: 1.5rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+  margin: 0;
+}
+
+.trial-title{
+  margin:0;
+  padding-top:6px;
+  font-size: 2.5rem;
+  font-weight: 800;
+
+}
+
+/* FLOW-当日の流れ*/
+
+
+/* オンライン体験も可能です。ご希望の方はフォーム内で「オンライン」を選択してください*/
+.trial-note{
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+
+/* Flow */
+.trial-flow{
+  margin-bottom: 40px;
+}
+
+.flow-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* Flow item：左右2カラム */
+.flow-item{
+  display: grid;
+  grid-template-columns: 260px 1fr; /* 左：画像 / 右：内容 */
+  gap: 16px;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 16px;
+
+  /*矢印表示のための調整*/
+  position:relative;
+  
+}
+
+.flow-media img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px; /* 角は好みで */
+  display: block;
+}
+
+/* 最後の item 以外に矢印を表示 */
+.flow-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top:100%;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 32px;
+  border-left: 2px dashed #d1d5db; /* 点線 */
+  margin-top: 16px;
+}
+
+/* 矢印の先端 */
+.flow-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 48px);
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  border-width: 6px 5px 0 5px;
+  border-style: solid;
+  border-color: #d1d5db transparent transparent transparent;
+}
+
+/*フローの最終行以外の余白調整*/
+.flow-item:not(:last-child) {
+  margin-bottom: 56px;
+}
+
+.flow-content{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flow-no{
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.flow-title{
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.flow-text{
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+/* Form section spacing */
+/* 申込みフォームSection：横幅いっぱいの帯 */
+.trial-form{
+  width: 100%;
+  background: #f7f7f2;          /* 好きな色に */
+
+}
+
+/* 中身は中央寄せ */
+.trial-form-inner{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 24px 64px;
+}
+
+/* APPLICATION-お申込みフォーム */
+.trial-section-head{
+  margin:24px 0 24px;
+  max-width: 1200px;
+}
+
+.trial-section-head-app{
+  margin:0 auto;
+  padding:128px 0 48px;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.trial-section-sub{
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.10em;
+  opacity: 0.65;
+}
+
+.trial-section-title{
+  margin: 6px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+  
+}
+
+/* 日付＋時間の横並び（PC） */
+.datetime-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.application-form{
+  display: grid;
+  gap: 24px; /* ← まずここで全rowの間隔を確保 */
+  margin-top:24px;
+}
+
+/* 必須ラベル */
+.form-label.is-required::after {
+  content: "必須";
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #ef4444; /* 赤 */
+  border-radius: 4px;
+  line-height: 1;
+}
+
+/* 既存の .form-field input/select/textarea のスタイルがある前提 */
+/* スマホは縦積みに */
+@media (max-width: 640px){
+  .flow-item{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .flow-media img{
+    height: 180px;
+  }
+}
+
+/* ===== Confirm Modal ===== */
+.confirm-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.confirm-modal.is-open{
+  display: block;
+}
+
+.confirm-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(17,24,39,0.55);
+}
+
+.confirm-dialog{
+  position: relative;
+  max-width: 720px;
+  margin: 6vh auto 0;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.confirm-title{
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.confirm-list{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.confirm-list .row{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.confirm-list dt{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.confirm-list dd{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #374151;
+  white-space: pre-wrap; /* textareaの改行を保持 */
+}
+
+.confirm-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.confirm-back,
+.confirm-submit{
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.confirm-submit{
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+/* =============================================
+   共通設定（PC・スマホ両方）
+   ============================================= */
+/* ハンバーガーボタンはPCでは隠す */
+.menu-trigger {
+  display: none;
+}
+
+/* 読み上げ専用テキストを画面から消す */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* =============================================
+   Responsive: Mobile (767px以下)
+   ============================================= */
+@media screen and (max-width: 767px) {
+  
+  /* 上段ヘッダー：横並びを強制し、高さを調整 */
+  .header-top .header-inner {
+    /* ロゴを左、ボタンを右に配置する設定 */
+    display: flex !important;
+    flex-direction: row !important;      /* 横並び */
+    justify-content: space-between !important; /* 両端に広げる */
+    align-items: center !important;      /* 上下中央 */
+    min-height: 70px;
+    padding: 0 20px;
+  }
+
+  /* PC用の右側リンク・ボタンを隠す */
+  .top-actions {
+    display: none !important;
+  }
+
+  /* ハンバーガーボタン：表示して重なり順を一番上に */
+  .menu-trigger {
+    display: block;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    background: #111827;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  .menu-trigger span {
+    display: block;
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  .menu-trigger span:nth-of-type(1) { top: 14px; }
+  .menu-trigger span:nth-of-type(2) { top: 21px; }
+  .menu-trigger span:nth-of-type(3) { top: 28px; }
+
+  /* ✕印アニメーション */
+  .menu-trigger.is-active span:nth-of-type(1) { transform: translateY(7px) rotate(-45deg); }
+  .menu-trigger.is-active span:nth-of-type(2) { opacity: 0; }
+  .menu-trigger.is-active span:nth-of-type(3) { transform: translateY(-7px) rotate(45deg); }
+
+  /* 下段ナビ本体を全画面メニュー化（最初は右側に隠す） */
+  .header-bottom {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    display: block !important; /* display:noneを解除 */
+    overflow-y: auto;
+  }
+
+  /* JavaScriptでクラスがついた時に画面に出す */
+  .header-bottom.is-active {
+    right: 0;
+  }
+
+  /* ナビ項目を縦並びに */
+  .global-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    padding-top: 100px;
+    gap: 0 !important;
+  }
+
+  .global-nav a {
+    width: 100%;
+    font-size: 1.25rem;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: #111827;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .global-nav a::after {
+    display: none !important;
+  }
+}
+
+/* =============================================
+   Responsive: Tablet/Desktop (768px以上)
+   ============================================= */
+@media screen and (min-width: 768px) {
+  /* PCでは固定配置を解除して元の色に戻す */
+  .header-bottom {
+    display: block !important;
+    position: static;
+    height: auto;
+    background: #f0eee4;
+  }
+  .global-nav {
+    flex-direction: row !important;
+  }
+}
+
+/* --- PCではスマホ専用項目を隠す --- */
+.nav-item-sp-only {
+  display: none !important;
+}
+
+/* --- スマホ時の設定（メディアクエリ内） --- */
+@media screen and (max-width: 767px) {
+  /* スマホメニュー内では表示させる */
+  .nav-item-sp-only {
+    display: block !important;
+    background-color: #f9f9f9; /* 少し色を変えて区別しやすくする（お好みで） */
+  }
+
+  /* お問い合わせを目立たせたい場合の調整 */
+  .global-nav a.nav-item-sp-only[href*="contact.html"] {
+    color: #2563eb; /* 青色にするなど */
+  }
+}
