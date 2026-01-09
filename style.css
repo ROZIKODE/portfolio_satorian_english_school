@@ -166,34 +166,7 @@ body {
   width: calc(100% - 40px);
 }
 
-/* ===== レスポンシブ（最低限） ===== */
-@media (max-width: 640px) {
-  .header-top .header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 16px;
-    gap: 12px;
-  }
 
-  .top-actions {
-    justify-content: space-between;
-  }
-
-  .top-links {
-    text-align: left;
-  }
-
-  .global-nav {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .global-nav {
-    gap: 86px;
-  }
-}
 
 /* ===== Hero ===== */
 .hero {
@@ -273,27 +246,6 @@ body {
   opacity: 0.95;
 }
 
-
-
-/* ===== Responsive ===== */
-@media (max-width: 640px) {
-  .hero-inner {
-    padding: 0 16px 44px;
-  }
-
-  .hero-media img {
-    height: 380px;
-  }
-
-  .hero-onimage {
-    padding: 0 16px;      /* スマホは余白を小さく */
-    max-width: none;
-  }
-
-  .hero-title {
-    font-size: 28px;
-  }
-}
 
 /* ===== News ===== */
 .news{
@@ -1575,6 +1527,43 @@ body {
   border-width: 0;
 }
 
+
+
+/* =============================================
+   Responsive: Tablet/Desktop (768px以上)
+   ============================================= */
+@media screen and (min-width: 768px) {
+  /* PCでは固定配置を解除して元の色に戻す */
+  .header-bottom {
+    display: block !important;
+    position: static;
+    height: auto;
+    background: #f0eee4;
+  }
+  .global-nav {
+    flex-direction: row !important;
+  }
+}
+
+/* --- PCではスマホ専用項目を隠す --- */
+.nav-item-sp-only {
+  display: none !important;
+}
+
+/* --- スマホ時の設定（メディアクエリ内） --- */
+@media screen and (max-width: 767px) {
+  /* スマホメニュー内では表示させる */
+  .nav-item-sp-only {
+    display: block !important;
+    background-color: #f9f9f9; /* 少し色を変えて区別しやすくする（お好みで） */
+  }
+
+  /* お問い合わせを目立たせたい場合の調整 */
+  .global-nav a.nav-item-sp-only[href*="contact.html"] {
+    color: #2563eb; /* 青色にするなど */
+  }
+}
+
 /* =============================================
    Responsive: Mobile (767px以下)
    ============================================= */
@@ -1672,32 +1661,47 @@ body {
   /* ヒーロー全体の高さ設定 */
   .hero-media {
     position: relative;
-    height: 60vh; /* 画面の高さの60%に設定（iPhoneで見栄えが良い高さ） */
+  
     min-height: 400px; /* 小さくなりすぎないように最低高を確保 */
     overflow: hidden;
   }
 
+
+
   /* 画像の表示調整：中心を基準にカバーする */
   .hero-media img {
     width: 100%;
-    height: 100%;
+    height: 50%;
     object-fit: cover; /* 比率を保ったまま枠いっぱいに広げる */
     object-position: center; /* 画像の中心を見せる */
+    
   }
+
+  
+/* 文字の読みやすさ用（左側を濃いめ） */
+.hero-media::after {
+    width: 100%;
+    height: 64%;
+    object-fit: cover; /* 比率を保ったまま枠いっぱいに広げる */
+    object-position: center; /* 画像の中心を見せる */
+  
+}
 
   /* テキストエリア：位置と余白の調整 */
   .hero-onimage {
     position: absolute;
-    top: 34%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%); /* 真ん中に配置 */
     width: 90%; /* 画面端にピッタリくっつかないように */
     text-align: left; /* スマホでは中央寄せがバランス良くなります */
     padding: 0;
+  
   }
 
   /* キッカー（英語の小見出し） */
   .hero-kicker {
+    
     font-size: 0.9rem;
     margin-bottom: 6px;
     letter-spacing: 0.05em;
@@ -1708,17 +1712,24 @@ body {
   .hero-title {
     font-size: 1.75rem; /* スマホで適切な大きさに */
     line-height: 1.4;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
     word-break: keep-all; /* 単語の途中で変に改行されないように */
   }
 
   /* 説明文：スマホでは改行を無視して流す */
   .hero-text {
-    font-size: 0.875rem;
+    margin-top:165px;
+    font-size: 1rem;
     line-height: 1.6;
-    text-align: left;
-    width:70%;
+    text-align: center;
+    width:90%;
+    color:black;
+    font-weight: 700;
+    margin-bottom: 0px;
+    
   }
+
+
 
   /* HTML内の <br /> をスマホの時だけ無効化（1行が短くなりすぎるのを防ぐ） */
   .hero-text br {
@@ -1738,39 +1749,4 @@ body {
 
 
 
-}
-
-/* =============================================
-   Responsive: Tablet/Desktop (768px以上)
-   ============================================= */
-@media screen and (min-width: 768px) {
-  /* PCでは固定配置を解除して元の色に戻す */
-  .header-bottom {
-    display: block !important;
-    position: static;
-    height: auto;
-    background: #f0eee4;
-  }
-  .global-nav {
-    flex-direction: row !important;
-  }
-}
-
-/* --- PCではスマホ専用項目を隠す --- */
-.nav-item-sp-only {
-  display: none !important;
-}
-
-/* --- スマホ時の設定（メディアクエリ内） --- */
-@media screen and (max-width: 767px) {
-  /* スマホメニュー内では表示させる */
-  .nav-item-sp-only {
-    display: block !important;
-    background-color: #f9f9f9; /* 少し色を変えて区別しやすくする（お好みで） */
-  }
-
-  /* お問い合わせを目立たせたい場合の調整 */
-  .global-nav a.nav-item-sp-only[href*="contact.html"] {
-    color: #2563eb; /* 青色にするなど */
-  }
 }
