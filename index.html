@@ -55,7 +55,22 @@
  <section class="hero" aria-label="Hero">
   <div class="hero-inner">
     <div class="hero-media hero-overlay">
-      <img src="images/hero.png" alt="英語を楽しそうに学ぶ子供たちと外国人講師" />
+
+      
+    <!-- レスポンシブ対応（画像切り替え） -->
+  <picture>
+
+    <!-- 767px以下（スマホ）-->
+      <source media="(max-width:767px)"
+      srcset="images/hero_sp_750x1132_sky.png">
+    
+    <!-- PC -->
+    <img src="images/hero.png" alt="英語を楽しそうに学ぶ子供たちと外国人講師" />
+
+  </picture>
+
+
+      
 
       <div class="hero-onimage">
         <p class="hero-kicker">Bilingual English School</p>
