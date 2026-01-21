@@ -402,21 +402,7 @@ body {
   opacity: 0.9;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 640px){
-  .news-inner{
-    padding: 0 16px 44px;
-  }
 
-  .news-link{
-    grid-template-columns: 1fr;
-    padding: 12px 0;
-  }
-
-  .news-actions{
-    justify-content: flex-start;
-  }
-}
 
 /* ===== Reasons ===== */
 .reasons{
@@ -1663,7 +1649,7 @@ body {
     position: relative;
     margin-top:8px;
     margin-bottom: 24px;
-    min-height:400px; /* 小さくなりすぎないように最低高を確保 */
+    min-height:300px; /* 小さくなりすぎないように最低高を確保 */
     overflow: hidden;
   }
 
@@ -1672,7 +1658,7 @@ body {
   /* 画像の表示調整：中心を基準にカバーする */
   .hero-media img {
     width: 100%;
-    height: 65%;
+    height: 100%;
  
   }
 
@@ -1701,7 +1687,7 @@ body {
   /* キッカー（英語の小見出し） */
   .hero-kicker {
     
-    font-size: 1.125rem;
+    font-size: 0.875rem;
     margin-bottom: 12px;
     letter-spacing: 0.05em;
     
@@ -1709,7 +1695,7 @@ body {
 
   /* メインタイトル：改行とサイズの調整 */
   .hero-title {
-    font-size: 2rem; /* スマホで適切な大きさに */
+    font-size: 1.5rem; /* スマホで適切な大きさに */
     line-height: 1.4;
     margin-bottom: 0px;
     word-break: keep-all; /* 単語の途中で変に改行されないように */
@@ -1718,10 +1704,10 @@ body {
   /* 説明文：スマホでは改行を無視して流す */
   .hero-text {
     margin-top:16px;
-    font-size: 1rem;
+    font-size: 0.75rem;
     line-height: 1.6;
     text-align: left;
-    width:85%;
+    width:80%;
     color:#ffffff;
     font-weight: 10;
     margin-bottom: 72px;
@@ -1737,15 +1723,39 @@ body {
 
 /*【NEWS お知らせ　Section】*/
 
-.news-link{
-  gap: 0px;
+  .news-link{
+    display: grid;
+    grid-template-columns: 120px 1fr; /* ← 左の幅。110〜140で好み調整 */
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  /* 左側（タグ＋日付）は縦並びのまま */
+  .news-meta{
+    gap: 6px;
+  }
+
+  /* タグ：行頭で目立つように */
+  .news-tag{
+    margin-top: 0;
+    height: 28px;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  /* 日付：左の下に */
+  .news-date{
+    padding-left: 0;
+    font-size: 12px;
+  }
+
+  /* 右側本文：詰める */
+  .news-text{
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem; /* 0.85〜1.0で調整OK */
+  }
 }
 
- .news-text{
-   font-size: 0.8rem;
- }
 
-
-
-
-}
