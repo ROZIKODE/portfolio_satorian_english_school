@@ -506,16 +506,7 @@ body {
   color: #111827;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 640px){
-  .reasons-inner{
-    padding: 44px 16px 52px;
-  }
 
-  .reasons-grid{
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ===== Courses & Fees ===== */
 .courses{
@@ -645,12 +636,6 @@ body {
 }
 
 
-/* ===== Responsive ===== */
-@media (max-width: 640px){
-  .courses-inner{
-    padding: 44px 16px 52px;
-  }
-}
 
 /* ===== Voices ===== */
 .voices{
@@ -1687,7 +1672,7 @@ body {
   /* キッカー（英語の小見出し） */
   .hero-kicker {
     
-    font-size: 0.875rem;
+    font-size: 1rem;
     margin-bottom: 12px;
     letter-spacing: 0.05em;
     
@@ -1695,7 +1680,7 @@ body {
 
   /* メインタイトル：改行とサイズの調整 */
   .hero-title {
-    font-size: 1.5rem; /* スマホで適切な大きさに */
+    font-size: 2rem; /* スマホで適切な大きさに */
     line-height: 1.4;
     margin-bottom: 0px;
     word-break: keep-all; /* 単語の途中で変に改行されないように */
@@ -1707,7 +1692,7 @@ body {
     font-size: 0.75rem;
     line-height: 1.6;
     text-align: left;
-    width:80%;
+    width:85%;
     color:#ffffff;
     font-weight: 10;
     margin-bottom: 72px;
@@ -1723,12 +1708,25 @@ body {
 
 /*【NEWS お知らせ　Section】*/
 
+  .news-inner{
+    margin:40px auto;
+    padding:0px 24px;
+  }
+
   .news-link{
     display: grid;
     grid-template-columns: 120px 1fr; /* ← 左の幅。110〜140で好み調整 */
     gap: 12px;
     align-items: center;
     padding: 10px 0;
+  }
+
+  .news-sub{
+    font-size:1.125rem;
+  }
+
+  .news-title{
+    font-size:1.5rem;
   }
 
   /* 左側（タグ＋日付）は縦並びのまま */
@@ -1740,22 +1738,77 @@ body {
   .news-tag{
     margin-top: 0;
     height: 28px;
-    font-size: 14px;
+    font-size: 0.875rem;
     padding: 0 12px;
+    
   }
 
   /* 日付：左の下に */
   .news-date{
-    padding-left: 0;
-    font-size: 12px;
+    padding-left: 12px;
+    font-size: 0.875rem;
+   
   }
 
   /* 右側本文：詰める */
   .news-text{
     margin: 0;
     line-height: 1.5;
-    font-size: 0.95rem; /* 0.85〜1.0で調整OK */
+    font-size: 0.875rem; /* 0.85〜1.0で調整OK */
   }
+
+  /* お知らせ　一覧を見るボタン*/
+
+  .news-button{
+    font-size:1rem;
+  }
+
+  .news-actions{
+    margin-top: 16px;
+  }
+
+  /*【REASONS　選ばれる理由】========== */
+
+  /*フレーム*/
+    .reasons-inner{
+      padding:56px 24px;
+    }
+
+    .reasons-grid{
+    grid-template-columns: 1fr;
+    }
+
+  /*タイトル*/
+    .reasons-sub{
+      font-size:1.125rem;
+    }
+
+    .reasons-title{
+      font-size:1.5rem;
+    }
+
+    .reasons-lead{
+      font-size:1rem;
+    }
+
+    /*メディア*/
+    .reason-media img{
+      height: 240px;
+    }
+
+    .reason-title{
+      font-size:1.25rem;
+    }
+
+  /*【COURSES & FEES コース・レッスン料】==========*/
+
+  /*フレーム*/
+    .courses-inner{
+      padding:56px 24px;
+    }
+
+  /* タイトル */
+   
 }
 
 
