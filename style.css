@@ -733,22 +733,7 @@ body {
   opacity: 0.9;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 640px){
-  .voices-inner{
-    padding: 44px 16px 52px;
-  }
 
-  .voice-item{
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-
-  .voice-image{
-    margin-bottom: 8px;
-  }
-
-}
 
 /* ===== Schools ===== */
 .schools{
@@ -1802,13 +1787,100 @@ body {
 
   /*【COURSES & FEES コース・レッスン料】==========*/
 
-  /*フレーム*/
+    /*フレーム*/
     .courses-inner{
-      padding:56px 24px;
+      padding:56px 24px 88px;
     }
 
-  /* タイトル */
-   
+    /* タイトル */
+    .courses-title{
+      font-size:1.5rem;
+    }
+
+    .courses-sub{
+      font-size:1.125rem;
+    }
+
+    /* テーブル */
+
+    .fee-table{
+      min-width: 1400px;
+    }
+
+    .fee-table thead th{
+      font-size:1.125rem;
+      padding:24px 12px;
+      text-align: center;
+    }
+    
+    .fee-table tbody th,
+    .fee-table tbody td{
+      text-align: center;
+      font-size: 1rem;
+      padding:32px 18px;
+    }
+
+    .courses-note p{
+      font-size:0.875rem;
+    }
+
+    /* 無料体験レッスン　ボタン */
+    .courses-cta-button{
+      font-size:1.5rem;
+    }
+
+    /*【VOICE 生徒様の声】==========*/ 
+
+      .voices-inner{
+        padding: 44px 24px 52px;
+      }
+
+        .voice-item{
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+    .voices-sub{
+      font-size:1.125rem;
+    }
+
+    .voices-title{
+      font-size:1.5rem;
+    }
+
+    /* 画像 */
+
+      .voice-image{
+        margin:0 auto;
+      }
+
+      .voice-image img{
+        width:180px;
+        height: 180px;
+      }
+
+      .voice-item{
+        gap:40px;
+      }
+
+    .voice-text p{
+        margin:0 auto;
+        font-size:1.125rem;
+        width:90%;
+        padding-bottom:8px;
+    }
+
+    .voice-name{
+       font-size:0.875rem;
+    }
+
+    .voices-button{
+      height:48px;
+      font-size:1rem;
+    }
+
+    
+
 }
 
 
