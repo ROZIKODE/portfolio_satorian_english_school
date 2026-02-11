@@ -5,85 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satorian English School</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+  <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
 </head>
+
 <body>
 
   <!-- ===== Header ===== -->
  <header class="site-header">
-  <div class="header-top">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <span class="logo-main">Satorian</span>
-        <span class="logo-sub">English School</span>
-      </a>
 
-      <button class="menu-trigger" id="js-trigger" aria-controls="global-nav" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span class="sr-only">メニュー</span>
-      </button>
+    <div class="header-top">
 
-      <div class="top-actions">
-        <nav class="top-links">
-          <a href="contact.html" class="top-link--contact">お問い合わせ</a>
-          <a href="#">入校までの流れ</a>
+      <div class="header-inner">
+        
+        <a href="#" class="logo">
+          <span class="logo-main">Satorian</span>
+          <span class="logo-sub">English School</span>
+        </a>
+        <button class="menu-trigger" id="js-trigger" aria-controls="global-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">メニュー</span>
+        </button>
+
+        <div class="top-actions">
+          <nav class="top-links">
+            <a href="contact.html" class="top-link--contact">お問い合わせ</a>
+            <a href="#">入校までの流れ</a>
+          </nav>
+
+          <a href="trial.html" class="cta-trial">無料体験レッスン</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="header-bottom" id="js-nav">
+      <div class="header-inner">
+
+        <nav class="global-nav">
+          <a href="#reasons">選ばれる理由</a>
+          <a href="#teachers">講師の特徴</a>
+          <a href="#courses">コース・レッスン料</a>
+          <a href="#schools">スクールを探す</a>
+          <a href="#voices">生徒様の声</a>
+          <a href="contact.html" class="nav-item-sp-only">お問い合わせ</a>
+          <a href="#" class="nav-item-sp-only">入校までの流れ</a>
+          <a href="trial.html" class="nav-cta nav-item-sp-only">無料体験レッスン</a>
         </nav>
 
-        <a href="trial.html" class="cta-trial">無料体験レッスン</a>
       </div>
     </div>
-  </div>
-
-  <div class="header-bottom" id="js-nav">
-    <div class="header-inner">
-      <nav class="global-nav">
-        <a href="#reasons">選ばれる理由</a>
-        <a href="#">講師の特徴</a>
-        <a href="#courses">コース・レッスン料</a>
-        <a href="#schools">スクールを探す</a>
-        <a href="#voices">生徒様の声</a>
-        <a href="contact.html" class="nav-item-sp-only">お問い合わせ</a>
-        <a href="#" class="nav-item-sp-only">入校までの流れ</a>
-      </nav>
-    </div>
-  </div>
-</header>
+  </header>
   <!-- ===== /Header ===== -->
 
-    <!-- ===== Hero ===== -->
- <section class="hero" aria-label="Hero">
-  <div class="hero-inner">
-    <div class="hero-media hero-overlay">
 
-      
-    <!-- レスポンシブ対応（画像切り替え） -->
-  <picture>
+  <!-- ===== Hero (Carousel) ===== -->
+  <section class="hero hero-carousel" aria-label="Hero">
+    <div class="hero-inner">
 
-    <!-- 767px以下（スマホ）-->
-      <source media="(max-width:767px)"
-      srcset="images/hero_sp_750x1132_sky.png">
-    
-    <!-- PC -->
-    <img src="images/hero.png" alt="英語を楽しそうに学ぶ子供たちと外国人講師" />
 
-  </picture>
+      <div class="hero-carousel__root" data-hero-carousel aria-roledescription="carousel">
+        <!-- スライド -->
+        <div class="hero-carousel__viewport">
+          <div class="hero-carousel__track" data-hero-track>
 
-      <div class="hero-onimage">
-        <p class="hero-kicker">Bilingual English School</p>
-        <h1 class="hero-title">
-          はじめての英語も、<br />
-          安心して楽しく。
-        </h1>
-        <p class="hero-text">
-          Satorian English Schoolは、日本語と英語の両方を話せる外国人講師が、<br />
-          一人ひとりに寄り添ってレッスンを行います。
-        </p>
+
+            <!-- Slide 1: 既存のメッセージ -->
+            <article class="hero-carousel__slide is-active" data-hero-slide aria-label="1 / 2">
+
+              <div class="hero-media hero-overlay">
+
+                <picture>
+                <source media="(max-width:767px)" srcset="images/hero_sp_750x1132_sky.png">
+                <img src="images/hero.png" alt="英語を楽しそうに学ぶ子供たちと外国人講師" />
+                </picture>
+
+                <div class="hero-onimage">
+                  <p class="hero-kicker">Bilingual English School</p>
+                  <h1 class="hero-title">
+                  はじめての英語も、<br />
+                  安心して楽しく。
+                  </h1>
+                  <p class="hero-text">
+                  Satorian English Schoolは、日本語と英語の両方を話せる外国人講師が、<br />
+                  一人ひとりに寄り添ってレッスンを行います。
+                  </p>
+                </div>
         
+              </div>
+
+            </article>
+
+            <!-- Slide 2: 無料体験を推す -->
+            <article class="hero-carousel__slide hero-carousel__slide--no-overlay" data-hero-slide aria-label="2 / 2">
+              <div class="hero-media hero-overlay">
+                <picture>
+                <source media="(max-width:767px)" srcset="images/hero_trial_sp.png">
+                <img src="images/hero_trial.png" alt="無料体験レッスンのイメージ" />
+                </picture>
+
+
+                <div class="hero-onimage2">
+
+                  <p class="hero-kicker2">FREE TRIAL</p>
+                    <h2 class="hero-title2">
+                    まずは無料体験で、<br />
+                    “安心”を体感。
+                    </h2>
+                    <p class="hero-text2">
+                    講師は日本語N1取得＆英語ネイティブ。<br />
+                    初心者でも不安ゼロで始められます。
+                    </p>
+                  <a class="hero-cta" href="trial.html">無料体験レッスンはこちら</a>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- 左右の切り替え（Hero左右余白に置く） -->
+        <button class="hero-carousel__nav hero-carousel__nav--prev" type="button" data-hero-prev aria-label="前のスライド">‹</button>
+        <button class="hero-carousel__nav hero-carousel__nav--next" type="button" data-hero-next aria-label="次のスライド">›</button>
+
+
+        <!-- 下部：dots + 再生/停止 -->
+        <div class="hero-carousel__controls" aria-label="スライド操作">
+
+          <div class="hero-carousel__dots" data-hero-dots aria-label="スライド位置"></div>
+
+            <button class="hero-carousel__pause" type="button" data-hero-pause aria-label="再生/停止" aria-pressed="false">
+            <span aria-hidden="true">Ⅱ</span>
+            </button>
+
+        </div>
+
       </div>
+
     </div>
-  </div>
-</section>
+
+  </section>
+
+<!-- ===== /Hero (Carousel) ===== -->
+
+
+
 
 <!-- ===== News ===== -->
   <section class="news" aria-label="お知らせ">
@@ -180,6 +255,84 @@
 </section>
 <!-- ===== /Reasons ===== -->
 
+<!-- ===== Teachers / 講師の特徴 ===== -->
+<section id="teachers" class="teachers" aria-label="講師の特徴">
+<div class="teachers-inner">
+
+            <p class="teachers-sub">TEACHERS</p>
+            <h2 class="teachers-title">講師の特徴</h2>
+
+        <!-- 1段目：魅せるブロック -->
+        <div class="teachers-feature">
+
+
+
+       
+
+
+            <div class="teachers-feature__media">
+            <img src="images/teacher_hero.png" alt="日本語と英語で指導する外国人講師のイメージ" />
+            </div>
+            
+            <div class="teachers-feature__body">
+              <div class="teachers-feature__box">
+                  <p class="teachers-lead">
+                  <strong>英語と日本語の両方を話せる外国人講師</strong>が在籍。<br />
+                  日本語は<strong>N1取得</strong>、英語は<strong>ネイティブレベル</strong>だから、はじめてでも安心です。
+                  </p>
+
+
+                  <ul class="teachers-points" aria-label="講師の基準">
+                  <li>日本語：N1取得者</li>
+                  <li>英語：ネイティブレベル</li>
+                  <li>学習目的に合わせた丁寧なサポート</li>
+                  </ul>
+              </div>
+            </div>
+
+        </div>
+
+
+        <!-- 2段目：講師紹介（2カラム） -->
+        <div class="teachers-staff">
+        <h3 class="teachers-staff__title">在籍講師</h3>
+
+
+        <div class="teachers-grid">
+        <article class="teacher-card">
+        <div class="teacher-card__photo">
+        <img src="images/teacher1.png" alt="講師 Alex の顔写真" />
+        </div>
+
+
+        <a class="teacher-card__name" href="teacher-alex.html">Alex Johnson</a>
+        <p class="teacher-card__meta">日本語N1 / English Native</p>
+        <p class="teacher-card__desc">
+        発音とスピーキング強化が得意。初心者にも日本語で丁寧にフォローします。
+        </p>
+        </article>
+
+
+        <article class="teacher-card">
+        <div class="teacher-card__photo">
+        <img src="images/teacher2.png" alt="講師 Mia の顔写真" />
+        </div>
+
+
+        <a class="teacher-card__name" href="teacher-mia.html">Mia Williams</a>
+        <p class="teacher-card__meta">日本語N1 / English Native</p>
+        <p class="teacher-card__desc">
+        日常会話〜資格対策まで対応。目標設計から学習習慣づくりまでサポート。
+        </p>
+        </article>
+        </div>
+        </div>
+
+
+</div>
+</section>
+<!-- ===== /Teachers ===== -->
+
 <!-- ===== Courses & Fees ===== -->
 <section id="courses" class="courses" aria-label="コース・レッスン料">
   <div class="courses-inner">
@@ -189,7 +342,9 @@
 
     </div>
 
-    <div class="fee-table-wrap" role="region" aria-label="レッスン料金表（横スクロール可）" tabindex="0">
+    <!-- ScrollHint導入 -->
+    <div class="fee-table-wrap js-scrollable" role="region" aria-label="レッスン料金表（横スクロール可）" tabindex="0">
+
       <table class="fee-table">
         <thead>
           <tr>
@@ -251,6 +406,11 @@
        <p class="courses-note">
          ※料金は目安です。学習目的・通学回数により最適プランをご提案します。
        </p>
+
+</div>
+
+
+
 
 <div class="courses-cta">
   <a href="trial.html" class="courses-cta-button">無料体験レッスン</a>
@@ -395,6 +555,7 @@
       <h3 class="footer-title">MENU</h3>
       <ul class="footer-list">
         <li><a href="#reasons">選ばれる理由</a></li>
+        <li><a href="#teachers">講師の特徴</a></li>
         <li><a href="#courses">コース・レッスン料</a></li>
         <li><a href="#schools">スクールを探す</a></li>
         <li><a href="#voices">生徒様の声</a></li>
@@ -423,5 +584,18 @@
 <!-- ===== /Footer ===== -->
 
 <script src="script.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+if (window.matchMedia("(max-width: 767px)").matches) {
+new ScrollHint(".js-scrollable", {
+suggestiveShadow: true,
+i18n: { scrollable: "スクロールできます" }
+});
+}
+});
+</script>
+
 </body>
 </html>
